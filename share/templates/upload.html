@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DropIt</title>
+</head>
+<body>
+{% if file %}
+{% for f in file %}
+	<img src="/static/share/uploads/{{f}}" width="200"/>
+{% endfor %}
+{% endif %}
+<form action='#' method="POST" enctype="multipart/form-data">
+	{%csrf_token%}
+	{{form}}
+	<input type="submit" value="Upload">
+</form>
+<a href='{%url 'logout'%}'><button>Logout</button></a>
+</body>
+</html>
